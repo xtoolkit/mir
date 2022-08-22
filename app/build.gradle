@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId 'io.github.xtoolkit.mir'
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName '1.0'
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        lintOptions {
+            checkReleaseBuilds false
+        }
+    }
+
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion dependency_version.compose
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation project(path: ':util')
+    implementation project(path: ':user')
+    implementation project(path: ':user:core')
+    implementation project(path: ':level')
+    implementation project(path: ':level:core')
+    implementation project(path: ':playground')
+    implementation project(path: ':playground:core')
+    implementation dependency.android.core
+    implementation dependency.android.material
+    implementation dependency.android.fragment
+    implementation dependency.android.collection
+    implementation dependency.android.lifecycle.runtime
+    implementation dependency.compose.ui
+    implementation dependency.compose.material3
+    implementation dependency.compose.themeAdapter
+    implementation dependency.compose.preview
+    implementation dependency.compose.activity
+    implementation dependency.koin.android
+    implementation dependency.room.runtime
+    implementation dependency.room.ktx
+    annotationProcessor dependency.room.compiler
+    kapt dependency.room.compiler
+}
