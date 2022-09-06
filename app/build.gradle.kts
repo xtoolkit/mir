@@ -73,7 +73,6 @@ dependencies {
     implementation(libs.androidx.collection)
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.preview)
     implementation(libs.androidx.compose.activity)
     implementation(libs.androidx.compose.material3)
     implementation(libs.android.material)
