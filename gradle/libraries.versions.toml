@@ -1,0 +1,47 @@
+[versions]
+
+# AndroidX
+androidxCore = "1.8.0"
+androidxFragment = "1.5.1"
+androidxCollection = "1.2.0"
+androidxLifecycle = "2.5.1"
+androidxCompose = "1.2.0"
+androidxComposeMaterial3 = "1.0.0-alpha15"
+androidxComposeActivity = "1.5.1"
+
+# Android
+androidMaterial = "1.6.1"
+androidThemeAdaptor = "1.0.15"
+androidAccompanist = "0.23.1"
+
+# Plugins
+androidGradle = "7.2.1"
+kotlin = "1.7.0"
+
+# Other
+room = "2.4.3"
+koin = "3.2.0"
+
+[libraries]
+androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidxFragment" }
+androidx-collection = { group = "androidx.collection", name = "collection-ktx", version.ref = "androidxCollection" }
+androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidxCompose" }
+androidx-compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidxCompose" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial3" }
+androidx-compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxComposeActivity" }
+android-material = { group = "com.google.android.material", name = "material", version.ref = "androidMaterial" }
+android-themeadapter = { group = "com.google.android.material", name = "compose-theme-adapter-3", version.ref = "androidThemeAdaptor" }
+android-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "androidAccompanist" }
+android-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "androidAccompanist" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradle" }
+android-library = { id = "com.android.library", version.ref = "androidGradle" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
