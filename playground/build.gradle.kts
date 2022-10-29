@@ -9,6 +9,7 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 32
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -53,4 +54,9 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+    testImplementation(libs.test.kotlin)
+    testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockk)
+    androidTestImplementation(libs.test.compose)
+    androidTestDebugImplementation(libs.debug.compose)
 }

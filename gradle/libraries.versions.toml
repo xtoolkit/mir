@@ -17,10 +17,16 @@ androidAccompanist = "0.23.1"
 # Plugins
 androidGradle = "7.2.1"
 kotlin = "1.7.0"
+jacoco = "0.8.8"
 
 # Other
 room = "2.4.3"
 koin = "3.2.0"
+
+# test
+kotlinTest = "1.6.4"
+junitJupiter = "5.9.1"
+mockk = "1.13.2"
 
 [libraries]
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
@@ -40,6 +46,13 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+test-kotlin = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinTest" }
+test-junit = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
+test-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+test-room = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+test-compose = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "androidxCompose" }
+test-jacoco = { group = "org.jacoco", name = "org.jacoco.core", version.ref = "jacoco" }
+debug-compose = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "androidxCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradle" }

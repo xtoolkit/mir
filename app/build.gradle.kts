@@ -33,6 +33,7 @@ android {
         getByName("debug") {
             isDebuggable = true
             applicationIdSuffix = ".debug"
+            isTestCoverageEnabled = true
         }
     }
 
@@ -67,7 +68,7 @@ dependencies {
     implementation(project(":level"))
     implementation(project(":level:core"))
     implementation(project(":playground"))
-    implementation(project(":playground:core"))    
+    implementation(project(":playground:core"))
     implementation(libs.androidx.core)
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.collection)

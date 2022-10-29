@@ -36,4 +36,7 @@ android {
 dependencies {
     implementation(project(":util:core"))
     implementation(libs.androidx.core)
+    testImplementation(libs.test.kotlin)
+    testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockk)
 }
