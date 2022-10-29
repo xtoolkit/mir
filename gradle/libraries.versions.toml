@@ -21,7 +21,7 @@ jacoco = "0.8.8"
 
 # Other
 room = "2.4.3"
-koin = "3.2.0"
+koin = "3.3.0"
 
 # test
 kotlinTest = "1.6.4"
@@ -33,6 +33,7 @@ androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "and
 androidx-fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidxFragment" }
 androidx-collection = { group = "androidx.collection", name = "collection-ktx", version.ref = "androidxCollection" }
 androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-base = { group = "androidx.lifecycle", name = "lifecycle-runtime", version.ref = "androidxLifecycle" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidxCompose" }
 androidx-compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidxCompose" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial3" }
