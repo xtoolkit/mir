@@ -13,3 +13,9 @@ buildscript {
         classpath(libs.test.jacoco.android)
     }
 }
+
+allprojects {
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
+}
