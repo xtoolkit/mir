@@ -58,7 +58,7 @@ jobs:
       - name: Unit Test with Android Emulator Runner
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
+          api-level: 28
           script: ./gradlew connectedCheck  --stacktrace
 
       - name: generate report
