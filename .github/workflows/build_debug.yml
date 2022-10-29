@@ -46,6 +46,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: Clean project
+        run: ./gradlew clean
+
       - name: Unit Test with Android Emulator Runner
         uses: reactivecircus/android-emulator-runner@v2
         with:
