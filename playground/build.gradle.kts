@@ -1,7 +1,6 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("com.dicedmelon.gradle.jacoco-android")
 }
 
 android {
@@ -22,6 +21,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        getByName("debug") {
+            isTestCoverageEnabled = true
         }
     }
 
