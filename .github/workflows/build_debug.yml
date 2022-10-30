@@ -55,14 +55,11 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
-      - name: Build debug
-        run: ./gradlew build jacocoTestReport assembleAndroidTest
-
       - name: Unit Test with Android Emulator Runner
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 28
-          script: ./gradlew connectedCheck  --stacktrace
+          script: ./gradlew :rootCoverageReport  --stacktrace
 
       - name: Upload coverage to Codecov
         run: |

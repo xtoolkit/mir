@@ -17,7 +17,7 @@ androidAccompanist = "0.23.1"
 # Plugins
 androidGradle = "7.2.1"
 kotlin = "1.7.0"
-jacocoAndroid = "0.1.5"
+rootCoverage = "1.5.3"
 
 # Other
 room = "2.4.3"
@@ -53,9 +53,9 @@ test-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 test-room = { group = "androidx.room", name = "room-testing", version.ref = "room" }
 test-compose = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "androidxCompose" }
 debug-compose = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "androidxCompose" }
-test-jacoco-android = { group = "com.dicedmelon.gradle", name = "jacoco-android", version.ref = "jacocoAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradle" }
 android-library = { id = "com.android.library", version.ref = "androidGradle" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+test-coveraged = { id = "nl.neotech.plugin.rootcoverage", version.ref = "rootCoverage" }

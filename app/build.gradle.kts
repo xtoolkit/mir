@@ -2,24 +2,6 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id("com.dicedmelon.gradle.jacoco-android")
-}
-
-jacoco {
-    toolVersion = "0.8.4"
-}
-
-tasks.withType<Test>() {
-    configure<JacocoTaskExtension> {
-        isIncludeNoLocationClasses = true
-        excludes = listOf("jdk.internal.*")
-    }
-}
-
-jacocoAndroidUnitTestReport {
-    csv.enabled(true)
-    html.enabled(true)
-    xml.enabled(true)
 }
 
 android {
