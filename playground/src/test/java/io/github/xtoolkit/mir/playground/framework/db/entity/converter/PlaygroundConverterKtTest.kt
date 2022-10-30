@@ -2,10 +2,10 @@ package io.github.xtoolkit.mir.playground.framework.db.entity.converter
 
 import io.github.xtoolkit.mir.playground.core.domain.Playground
 import io.github.xtoolkit.mir.playground.framework.db.entity.PlaygroundEntity
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-internal class PlaygroundConverterKtTest {
+class PlaygroundConverterKtTest {
     private val playgroundFakeId = 7
 
     private val playgroundFakeWords = listOf("AB", "CD", "EF")

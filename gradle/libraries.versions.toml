@@ -25,7 +25,7 @@ koin = "3.3.0"
 
 # test
 kotlinTest = "1.6.4"
-junitJupiter = "5.9.1"
+junit = "4.13.2"
 mockk = "1.13.2"
 
 [libraries]
@@ -48,7 +48,7 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 test-kotlin = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinTest" }
-test-junit = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
+test-junit = { group = "junit", name = "junit", version.ref = "junit" }
 test-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 test-room = { group = "androidx.room", name = "room-testing", version.ref = "room" }
 test-compose = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "androidxCompose" }

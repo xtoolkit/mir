@@ -7,16 +7,13 @@ import io.github.xtoolkit.mir.playground.framework.db.entity.converter.toDomain
 import io.github.xtoolkit.mir.playground.framework.db.entity.converter.toEntity
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
-import io.mockk.junit5.MockKExtension
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.Assert.assertEquals
+import org.junit.Before
+import org.junit.Test
 
-@ExtendWith(MockKExtension::class)
-internal class PlaygroundLocalDSTest {
+class PlaygroundLocalDSTest {
     private lateinit var subject: PlaygroundLocalDS
 
     private val playgroundFakeId = 7
@@ -26,8 +23,10 @@ internal class PlaygroundLocalDSTest {
     @MockK
     private lateinit var mockPlaygroundDao: PlaygroundDao
 
-    @BeforeEach
+    @Before
     fun setUp() {
+        MockKAnnotations.init(this)
+
         subject = PlaygroundLocalDS(mockPlaygroundDao)
         playgroundEntity = PlaygroundEntity(playgroundFakeId, "")
     }

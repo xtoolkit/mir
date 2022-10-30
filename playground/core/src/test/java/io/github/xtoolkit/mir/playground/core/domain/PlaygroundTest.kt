@@ -1,17 +1,17 @@
 package io.github.xtoolkit.mir.playground.core.domain
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Before
+import org.junit.Test
 
-internal class PlaygroundTest {
+class PlaygroundTest {
     private val playgroundFakeId = 7
 
     private val playgroundFakeWords = listOf("AB", "CD", "EF")
 
     private lateinit var playground: Playground
 
-    @BeforeEach
+    @Before
     fun setUp() {
         playground = Playground(playgroundFakeId, playgroundFakeWords)
     }
