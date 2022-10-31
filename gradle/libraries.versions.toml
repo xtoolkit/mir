@@ -21,12 +21,14 @@ rootCoverage = "1.5.3"
 
 # Other
 room = "2.4.3"
-koin = "3.3.0"
+koinAndroid = "3.3.0"
+koinCore = "3.2.2"
 
 # test
 kotlinTest = "1.6.4"
 junit = "4.13.2"
 mockk = "1.13.2"
+androidxTestCore = "1.4.0"
 
 [libraries]
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
@@ -45,13 +47,15 @@ android-systemuicontroller = { group = "com.google.accompanist", name = "accompa
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koinAndroid" }
+koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinAndroid" }
 test-kotlin = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinTest" }
 test-junit = { group = "junit", name = "junit", version.ref = "junit" }
 test-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
-test-room = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+test-koin-core = { group = "io.insert-koin", name = "koin-test", version.ref = "koinCore" }
+test-koin-junit = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koinCore" }
 test-compose = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "androidxCompose" }
+test-androidx-core = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
 debug-compose = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "androidxCompose" }
 
 [plugins]
