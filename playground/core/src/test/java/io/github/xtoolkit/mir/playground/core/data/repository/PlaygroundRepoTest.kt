@@ -29,7 +29,7 @@ class PlaygroundRepoTest {
     }
 
     @After
-    fun setDown() {
+    fun tearDown() {
         unmockkAll()
     }
 

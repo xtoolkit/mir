@@ -5,7 +5,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import org.junit.Rule
 import org.junit.Test
 
-class WordBoxKtTest {
+class WordBoxTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -20,10 +20,13 @@ class WordBoxKtTest {
         }
 
         // Assert
-        composeTestRule.onNodeWithText(word[0].toString()).assertIsDisplayed()
-        composeTestRule.onNodeWithText(word[1].toString()).assertIsDisplayed()
-        composeTestRule.onAllNodesWithText(word[2].toString()).onFirst().assertIsDisplayed()
-        composeTestRule.onNodeWithText(word[4].toString()).assertIsDisplayed()
+        composeTestRule.onRoot().onChildren().apply {
+            assertCountEquals(word.length)
+
+            fetchSemanticsNodes().forEachIndexed { i, _ ->
+                get(i).assertTextEquals(word[i].toString())
+            }
+        }
     }
 
     @Test
@@ -37,9 +40,8 @@ class WordBoxKtTest {
         }
 
         // Assert
-        composeTestRule.onNodeWithText(word[0].toString()).assertDoesNotExist()
-        composeTestRule.onNodeWithText(word[1].toString()).assertDoesNotExist()
-        composeTestRule.onAllNodesWithText(word[2].toString()).onFirst().assertDoesNotExist()
-        composeTestRule.onNodeWithText(word[4].toString()).assertDoesNotExist()
+        word.forEach {
+            composeTestRule.onNodeWithText(it.toString()).assertDoesNotExist()
+        }
     }
 }

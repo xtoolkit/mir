@@ -21,7 +21,7 @@ class KoinTest: KoinTest {
     }
 
     @After
-    fun setDown() {
+    fun tearDown() {
         unmockkAll()
     }
 

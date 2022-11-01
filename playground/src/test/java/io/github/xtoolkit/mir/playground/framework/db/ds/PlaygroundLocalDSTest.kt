@@ -33,7 +33,7 @@ class PlaygroundLocalDSTest {
     }
 
     @After
-    fun setDown() {
+    fun tearDown() {
         unmockkAll()
     }
 

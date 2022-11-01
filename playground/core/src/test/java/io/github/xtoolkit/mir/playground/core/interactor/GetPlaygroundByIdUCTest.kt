@@ -28,7 +28,7 @@ internal class GetPlaygroundByIdUCTest {
     }
 
     @After
-    fun setDown() {
+    fun tearDown() {
         unmockkAll()
     }
 

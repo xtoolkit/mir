@@ -28,7 +28,7 @@ class PlaygroundDaoTest {
 
     @After
     @Throws(IOException::class)
-    fun setDown() {
+    fun tearDown() {
         db.close()
     }
 
