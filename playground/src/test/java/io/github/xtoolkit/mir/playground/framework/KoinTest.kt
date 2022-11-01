@@ -2,6 +2,7 @@ package io.github.xtoolkit.mir.playground.framework
 
 import io.github.xtoolkit.mir.playground.framework.db.dao.PlaygroundDao
 import io.mockk.*
+import org.junit.After
 import org.junit.Rule
 import org.junit.Test
 import org.koin.dsl.module
@@ -16,7 +17,12 @@ class KoinTest: KoinTest {
 
     @get:Rule
     val mockProvider = MockProviderRule.create {
-        mockkConstructor(it)
+        mockkClass(it)
+    }
+
+    @After
+    fun setDown() {
+        unmockkAll()
     }
 
     @Test

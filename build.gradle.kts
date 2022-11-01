@@ -7,6 +7,7 @@ plugins {
 
 rootCoverage {
     generateXml = true
+    excludes = excludes.toMutableList().apply { add("**/*_Impl.*") }
 }
 
 task("clean") {

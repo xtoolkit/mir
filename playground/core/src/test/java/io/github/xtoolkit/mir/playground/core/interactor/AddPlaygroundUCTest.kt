@@ -6,6 +6,7 @@ import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -24,6 +25,11 @@ internal class AddPlaygroundUCTest {
         MockKAnnotations.init(this)
 
         subject = AddPlaygroundUC(mockPlaygroundRepo)
+    }
+
+    @After
+    fun setDown() {
+        unmockkAll()
     }
 
     @Test

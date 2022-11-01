@@ -4,9 +4,9 @@ import io.github.xtoolkit.mir.playground.core.data.datasource.PlaygroundDS
 import io.github.xtoolkit.mir.playground.core.domain.Playground
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
-import io.mockk.junit5.MockKExtension
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -26,6 +26,11 @@ class PlaygroundRepoTest {
 
         subject = PlaygroundRepo(mockPlaygroundDS)
         every { mockPlayground.id } returns 7
+    }
+
+    @After
+    fun setDown() {
+        unmockkAll()
     }
 
     @Test
