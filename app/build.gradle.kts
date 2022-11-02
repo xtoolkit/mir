@@ -14,6 +14,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         lint.checkReleaseBuilds = false
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables {
             useSupportLibrary = true
@@ -82,6 +83,9 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+    androidTestImplementation(libs.test.kotlin)
+    androidTestImplementation(libs.test.junit)
+    androidTestImplementation(libs.test.androidx.core)
     annotationProcessor(libs.room.compiler)
     kapt(libs.room.compiler)
 }

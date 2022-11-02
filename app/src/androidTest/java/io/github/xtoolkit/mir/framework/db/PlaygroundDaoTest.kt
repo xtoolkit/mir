@@ -1,8 +1,8 @@
-package io.github.xtoolkit.mir.playground.framework.db.dao
+package io.github.xtoolkit.mir.framework.db
 
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import io.github.xtoolkit.mir.playground.framework.db.PlaygroundDatabase
+import io.github.xtoolkit.mir.playground.framework.db.dao.PlaygroundDao
 import io.github.xtoolkit.mir.playground.framework.db.entity.PlaygroundEntity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -15,13 +15,13 @@ import java.io.IOException
 
 class PlaygroundDaoTest {
     private lateinit var playgroundDao: PlaygroundDao
-    private lateinit var db: PlaygroundDatabase
+    private lateinit var db: AppDatabase
 
     @Before
     fun setUp() {
         db = Room.inMemoryDatabaseBuilder(
             ApplicationProvider.getApplicationContext(),
-            PlaygroundDatabase::class.java
+            AppDatabase::class.java
         ).build()
         playgroundDao = db.playgroundDao()
     }

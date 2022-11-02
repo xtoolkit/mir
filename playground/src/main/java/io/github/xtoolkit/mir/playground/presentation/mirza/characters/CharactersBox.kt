@@ -146,6 +146,5 @@ fun CharactersBox(
                 itemSize = itemSize
             )
         )
-        val x = items
     }
 }

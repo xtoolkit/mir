@@ -67,6 +67,4 @@ dependencies {
     testImplementation(libs.test.koin.junit)
     androidTestImplementation(libs.test.compose)
     androidTestDebugImplementation(libs.debug.compose)
-    annotationProcessor(libs.room.compiler)
-    kapt(libs.room.compiler)
 }
