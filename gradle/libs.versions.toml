@@ -66,4 +66,4 @@ android-application = { id = "com.android.application", version.ref = "androidGr
 android-library = { id = "com.android.library", version.ref = "androidGradle" }
 android-test = { id = "com.android.test", version.ref = "androidGradle" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-test-coveraged = { id = "nl.neotech.plugin.rootcoverage", version.ref = "rootCoverage" }
+test-coverage = { id = "nl.neotech.plugin.rootcoverage", version.ref = "rootCoverage" }

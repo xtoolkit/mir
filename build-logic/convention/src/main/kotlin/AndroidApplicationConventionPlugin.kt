@@ -4,7 +4,6 @@ import io.github.xtoolkit.mir.configureKotlinAndroid
 import io.github.xtoolkit.mir.configureAndroidCompose
 import io.github.xtoolkit.mir.configureUnitTest
 import io.github.xtoolkit.mir.configureAndroidTest
-import io.github.xtoolkit.mir.configureJacoco
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -25,8 +24,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 configureUnitTest(this)
                 configureAndroidTest(this)
             }
-
-            configureJacoco(extensions.getByType<ApplicationAndroidComponentsExtension>())
         }
     }
 }

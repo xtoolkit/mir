@@ -2,7 +2,6 @@ import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
 import io.github.xtoolkit.mir.configureKotlinAndroid
 import io.github.xtoolkit.mir.configureUnitTest
-import io.github.xtoolkit.mir.configureJacoco
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -20,11 +19,9 @@ class AndroidLibraryCoreConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<LibraryExtension> {
-                configureKotlinAndroid(this, true)
+                configureKotlinAndroid(this)
                 configureUnitTest(this)
             }
-
-            configureJacoco(extensions.getByType<LibraryAndroidComponentsExtension>())
 
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
             dependencies {

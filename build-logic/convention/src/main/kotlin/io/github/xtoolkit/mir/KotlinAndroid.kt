@@ -1,6 +1,8 @@
 package io.github.xtoolkit.mir
 
 import com.android.build.api.dsl.CommonExtension
+import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import com.android.build.gradle.LibraryExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -10,25 +12,53 @@ import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.provideDelegate
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
-/**
- * Configure base Kotlin with Android options
- */
-internal fun Project.configureKotlinAndroid(
-    commonExtension: CommonExtension<*, *, *, *>,
-    isLibrary: Boolean = false
-) {
+internal fun Project.configureKotlinAndroid(baseAppModuleExtension: BaseAppModuleExtension) {
+    configureKotlinAndroid(baseAppModuleExtension as CommonExtension<*, *, *, *>)
+    baseAppModuleExtension.apply {
+        defaultConfig {
+            targetSdk = 32
+            lint.checkReleaseBuilds = false
+
+            vectorDrawables {
+                useSupportLibrary = true
+            }
+        }
+
+        packagingOptions {
+            resources {
+                excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            }
+        }
+
+        testOptions {
+            unitTests {
+                isIncludeAndroidResources = true
+            }
+        }
+    }
+}
+
+internal fun Project.configureKotlinAndroid(libraryExtension: LibraryExtension) {
+    configureKotlinAndroid(libraryExtension as CommonExtension<*, *, *, *>)
+    libraryExtension.apply {
+        defaultConfig {
+            targetSdk = 32
+        }
+    }
+}
+
+internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, *, *, *>) {
     commonExtension.apply {
         compileSdk = 32
 
         defaultConfig {
             minSdk = 21
+        }
 
-            if (!isLibrary) {
-                lint.checkReleaseBuilds = false
-
-                vectorDrawables {
-                    useSupportLibrary = true
-                }
+        buildTypes {
+            getByName("debug") {
+                isTestCoverageEnabled = true
+                enableUnitTestCoverage = true
             }
         }
 
@@ -39,37 +69,9 @@ internal fun Project.configureKotlinAndroid(
         }
 
         kotlinOptions {
-            // Treat all Kotlin warnings as errors (disabled by default)
-            // Override by setting warningsAsErrors=true in your ~/.gradle/gradle.properties
             val warningsAsErrors: String? by project
             allWarningsAsErrors = warningsAsErrors.toBoolean()
-
-            /*
-            freeCompilerArgs = freeCompilerArgs + listOf(
-                "-opt-in=kotlin.RequiresOptIn",
-                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-                "-opt-in=kotlinx.coroutines.FlowPreview",
-                "-opt-in=kotlin.Experimental",
-                "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
-            )
-             */
-
-            // Set JVM target to 1.8
             jvmTarget = JavaVersion.VERSION_1_8.toString()
-        }
-
-        if (!isLibrary) {
-            packagingOptions {
-                resources {
-                    excludes += "/META-INF/{AL2.0,LGPL2.1}"
-                }
-            }
-
-            testOptions {
-                unitTests {
-                    isIncludeAndroidResources = true
-                }
-            }
         }
     }
 
