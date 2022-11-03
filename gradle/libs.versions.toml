@@ -29,6 +29,7 @@ kotlinTest = "1.6.4"
 junit = "4.13.2"
 mockk = "1.13.2"
 androidxTestCore = "1.4.0"
+jacoco = "0.8.7"
 
 [libraries]
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
@@ -57,9 +58,12 @@ test-koin-junit = { group = "io.insert-koin", name = "koin-test-junit4", version
 test-compose = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "androidxCompose" }
 test-androidx-core = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
 debug-compose = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "androidxCompose" }
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradle" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradle" }
 android-library = { id = "com.android.library", version.ref = "androidGradle" }
+android-test = { id = "com.android.test", version.ref = "androidGradle" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 test-coveraged = { id = "nl.neotech.plugin.rootcoverage", version.ref = "rootCoverage" }

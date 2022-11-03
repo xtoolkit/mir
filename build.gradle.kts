@@ -1,12 +1,13 @@
-plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.test.coveraged) apply true
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 
-rootCoverage {
-    generateXml = true
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
 }
 
 task("clean") {
