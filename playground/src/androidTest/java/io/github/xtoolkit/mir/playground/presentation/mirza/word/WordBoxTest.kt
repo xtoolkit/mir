@@ -1,13 +1,22 @@
 package io.github.xtoolkit.mir.playground.presentation.mirza.word
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.*
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import com.google.android.material.R.style.Theme_Material3_DynamicColors_DayNight
+import io.github.xtoolkit.mir.util.presentation.layout.DefaultLayout
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 class WordBoxTest {
     @get:Rule
-    val composeTestRule = createComposeRule()
+    val composeTestRule = createAndroidComposeRule<ComponentActivity>()
+
+    @Before
+    fun setUp() {
+        composeTestRule.activity.setTheme(Theme_Material3_DynamicColors_DayNight)
+    }
 
     @Test
     fun givenWord_whenUseWordBox_thenShowSplitWord() {
@@ -16,7 +25,9 @@ class WordBoxTest {
 
         // Act
         composeTestRule.setContent {
-            WordBox(word)
+            DefaultLayout {
+                WordBox(word)
+            }
         }
 
         // Assert
@@ -36,7 +47,9 @@ class WordBoxTest {
 
         // Act
         composeTestRule.setContent {
-            WordBox("     ")
+            DefaultLayout {
+                WordBox("     ")
+            }
         }
 
         // Assert

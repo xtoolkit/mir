@@ -9,20 +9,20 @@ class PlaygroundTest {
 
     private val playgroundFakeWords = listOf("AB", "CD", "EF")
 
-    private lateinit var playground: Playground
+    private lateinit var subject: Playground
 
     @Before
     fun setUp() {
-        playground = Playground(playgroundFakeId, playgroundFakeWords)
+        subject = Playground(playgroundFakeId, playgroundFakeWords)
     }
 
     @Test
     fun whenPlaygroundGetId_thenPlaygroundIdReturned() {
-        assertEquals(playgroundFakeId, playground.id)
+        assertEquals(playgroundFakeId, subject.id)
     }
 
     @Test
     fun whenPlaygroundGetWords_thenPlaygroundWordsReturned() {
-        assertEquals(playgroundFakeWords, playground.words)
+        assertEquals(playgroundFakeWords, subject.words)
     }
 }

@@ -1,15 +1,27 @@
 package io.github.xtoolkit.mir.playground.presentation.mirza.characters
 
+import androidx.activity.ComponentActivity
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.test.*
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.unit.dp
+import com.google.android.material.R.style.Theme_Material3_DynamicColors_DayNight
+import io.github.xtoolkit.mir.util.presentation.layout.DefaultLayout
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 class CharactersBoxTest {
     @get:Rule
-    val composeTestRule = createComposeRule()
+    val composeTestRule = createAndroidComposeRule<ComponentActivity>()
+
+    @Before
+    fun setUp() {
+        composeTestRule.activity.setTheme(Theme_Material3_DynamicColors_DayNight)
+    }
 
     @Test
     fun givenThreeChars_whenCharacterBoxCalled_andMoveTouchOnChars_thenChainCharsReturn() {
@@ -19,7 +31,9 @@ class CharactersBoxTest {
 
         // Act
         composeTestRule.setContent {
-            CharactersBox(characters) { composeSelected = it }
+            DefaultLayout(modifier = Modifier.size(320.dp)) {
+                CharactersBox(characters) { composeSelected = it }
+            }
         }
         val root = composeTestRule.onRoot()
         val items = characters.map { composeTestRule.onNodeWithText(it.toString()) }
@@ -28,7 +42,6 @@ class CharactersBoxTest {
         root.performTouchInput { up() }
 
         // Assert
-        composeTestRule.waitForIdle()
         assertEquals(composeSelected, characters.joinToString(""))
     }
 
@@ -41,7 +54,9 @@ class CharactersBoxTest {
 
         // Act
         composeTestRule.setContent {
-            reset = CharactersBox(characters) { composeSelected = it }
+            DefaultLayout(modifier = Modifier.size(320.dp)) {
+                reset = CharactersBox(characters) { composeSelected = it }
+            }
         }
         val root = composeTestRule.onRoot()
         val items = characters.map { composeTestRule.onNodeWithText(it.toString()) }
@@ -51,7 +66,6 @@ class CharactersBoxTest {
         reset()
 
         // Assert
-        composeTestRule.waitForIdle()
         assertEquals(composeSelected, characters.joinToString(""))
     }
 
@@ -63,7 +77,9 @@ class CharactersBoxTest {
 
         // Act
         composeTestRule.setContent {
-            CharactersBox(characters) { composeSelected = it }
+            DefaultLayout(modifier = Modifier.size(320.dp)) {
+                CharactersBox(characters) { composeSelected = it }
+            }
         }
         val root = composeTestRule.onRoot()
         val items = characters.map { composeTestRule.onNodeWithText(it.toString()) }
@@ -72,7 +88,6 @@ class CharactersBoxTest {
         root.performTouchInput { up() }
 
         // Assert
-        composeTestRule.waitForIdle()
         assertEquals(composeSelected, characters.joinToString(""))
     }
 
@@ -84,7 +99,9 @@ class CharactersBoxTest {
 
         // Act
         composeTestRule.setContent {
-            CharactersBox(characters) { composeSelected = it }
+            DefaultLayout(modifier = Modifier.size(320.dp)) {
+                CharactersBox(characters) { composeSelected = it }
+            }
         }
         val root = composeTestRule.onRoot()
         val items = characters.map { composeTestRule.onNodeWithText(it.toString()) }
@@ -97,7 +114,6 @@ class CharactersBoxTest {
         }
 
         // Assert
-        composeTestRule.waitForIdle()
         assertEquals(composeSelected, characters.joinToString(""))
     }
 }
