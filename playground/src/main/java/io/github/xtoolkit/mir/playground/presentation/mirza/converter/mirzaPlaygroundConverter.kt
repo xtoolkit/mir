@@ -4,10 +4,15 @@ import io.github.xtoolkit.mir.playground.core.domain.Playground
 import io.github.xtoolkit.mir.playground.presentation.mirza.MirzaPlaygroundEntity
 
 fun Playground.toMirzaPlaygroundEntity(): MirzaPlaygroundEntity {
-    val sortedWords = words.sortedBy { it.length }
+    val chars = mutableListOf<Char>()
+    words.forEach { word ->
+        word.forEach { char ->
+            if (chars.find { it == char } == null) chars.add(char)
+        }
+    }
     return MirzaPlaygroundEntity(
         id = id,
-        characters = sortedWords.last().toList().sorted(),
-        words = sortedWords
+        characters = chars,
+        words = words.sortedBy { it.length }
     )
 }
