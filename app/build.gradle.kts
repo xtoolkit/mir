@@ -5,8 +5,9 @@ plugins {
 
 android {
     defaultConfig {
-        targetSdk = 32
+        targetSdk = 33
         applicationId = "io.github.xtoolkit.mir"
+        testApplicationId = "io.github.xtoolkit.mir.test"
         versionCode = 1
         versionName = "1.0"
     }

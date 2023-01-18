@@ -2,6 +2,10 @@ plugins {
     id("mir.android.library")
 }
 
+android {
+    namespace = "io.github.xtoolkit.mir.playground"
+}
+
 dependencies {
     implementation(project(":util"))
     implementation(project(":util:core"))

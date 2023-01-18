@@ -5,7 +5,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
-import com.google.android.material.composethemeadapter3.createMdc3Theme
+import com.google.accompanist.themeadapter.material3.createMdc3Theme
 
 private val LightThemeColors = lightColorScheme()
 

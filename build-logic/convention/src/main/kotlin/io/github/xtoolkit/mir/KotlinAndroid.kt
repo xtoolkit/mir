@@ -16,7 +16,7 @@ internal fun Project.configureKotlinAndroid(baseAppModuleExtension: BaseAppModul
     configureKotlinAndroid(baseAppModuleExtension as CommonExtension<*, *, *, *>)
     baseAppModuleExtension.apply {
         defaultConfig {
-            targetSdk = 32
+            targetSdk = 33
             lint.checkReleaseBuilds = false
 
             vectorDrawables {
@@ -40,16 +40,12 @@ internal fun Project.configureKotlinAndroid(baseAppModuleExtension: BaseAppModul
 
 internal fun Project.configureKotlinAndroid(libraryExtension: LibraryExtension) {
     configureKotlinAndroid(libraryExtension as CommonExtension<*, *, *, *>)
-    libraryExtension.apply {
-        defaultConfig {
-            targetSdk = 32
-        }
-    }
+    libraryExtension.defaultConfig.targetSdk = 33
 }
 
 internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, *, *, *>) {
     commonExtension.apply {
-        compileSdk = 32
+        compileSdk = 33
 
         defaultConfig {
             minSdk = 21
@@ -57,7 +53,7 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, 
 
         buildTypes {
             getByName("debug") {
-                isTestCoverageEnabled = true
+                enableAndroidTestCoverage = true
                 enableUnitTestCoverage = true
             }
         }
@@ -65,7 +61,6 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, 
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
-            // isCoreLibraryDesugaringEnabled = true
         }
 
         kotlinOptions {

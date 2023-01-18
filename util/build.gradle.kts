@@ -2,6 +2,10 @@ plugins {
     id("mir.android.library")
 }
 
+android {
+    namespace = "io.github.xtoolkit.mir.util"
+}
+
 dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.material3)
